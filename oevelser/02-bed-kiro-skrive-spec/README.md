@@ -126,6 +126,14 @@ Hvad bør man særligt være opmærksom på?
 
 ---
 
+## Godt at vide: Spec-templates og steering
+
+I rigtige projekter bruger man ofte **spec-templates** — standardskabeloner der sikrer at vigtige sektioner altid er med (requirements, design, tasks, test-strategi). Templates gør det lettere at skrive konsistente specs på tværs af et team.
+
+Kiro understøtter også **steering-filer** — vedvarende regler der påvirker Kiros opførsel i alle samtaler. Prøv at åbne filen `.kiro/steering/coding-standards.md` og se hvilke regler der er defineret for dette projekt. Steering-filer er det der gør Kiro-workflows reproducerbare og konsistente — i modsætning til instruktioner du giver i en enkelt chat-session.
+
+---
+
 ## ✅ Øvelsen er færdig, når:
 
 - [ ] Du har en fartøjskartotek-spec i projektet

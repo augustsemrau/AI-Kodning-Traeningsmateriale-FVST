@@ -70,6 +70,8 @@ kiro-laeringsforloeb/
 │   └── pytest.ini             ← Pytest-konfiguration
 │
 ├── .kiro/
+│   ├── steering/              ← Kiro-konfiguration (kodestandarder)
+│   │   └── coding-standards.md
 │   └── specs/                 ← Færdige eksempel-specs (start her!)
 │       ├── fangst-registrering/
 │       │   ├── requirements.md

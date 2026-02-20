@@ -31,3 +31,15 @@ Hver task kan udføres af en udvikler eller af Kiro. Rækkefølgen er en anbefal
   - [ ] 8.2 Test afvisning af nul mængde (FR-06)
   - [ ] 8.3 Test afvisning af fremtidig dato (FR-07)
   - [ ] 8.4 Test afvisning af ugyldig fiskeart
+
+## Checkpoint
+
+Verificer at alle tests er grønne inden du fortsætter med eventuelle udvidelser:
+```bash
+cd app && pytest tests/ -v
+```
+
+## Optionelle udvidelser
+
+- [ ]* 9. Tilføj filtrering på fiskeart i GET /fangster
+- [ ]* 10. Tilføj sortering af fangster (efter dato eller mængde)

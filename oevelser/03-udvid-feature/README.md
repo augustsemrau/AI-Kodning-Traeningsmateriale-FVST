@@ -48,6 +48,21 @@ app/
 
 Åbn `app/src/main.py` og `app/src/models.py` og se at de kun indeholder skelet-kode med TODO-kommentarer. Det er Kiros opgave at udfylde dem.
 
+### Task-status i specs
+
+Åbn `.kiro/specs/fangst-registrering/tasks.md` og bemærk syntaksen:
+
+- `[ ]` = Ufærdig task (ikke startet)
+- `[x]` = Færdig task (Kiro opdaterer automatisk når den implementerer en task)
+- `[-]` = Task i gang
+- Tasks markeret med `*` efter `[ ]` er **optionelle** — Kiro spørger dig før den starter dem
+
+Denne syntaks gør det let at følge med i, hvor langt implementeringen er nået.
+
+### Test-konventioner
+
+I dette projekt placerer vi tests i `app/tests/` med navnekonventionen `test_<feature>.py`. Disse konventioner er defineret i projektets steering-fil (`.kiro/steering/coding-standards.md`), så Kiro konsistent placerer og navngiver tests korrekt.
+
 ---
 
 ## Del 1: Lad Kiro implementere fangst-registrering (20 min)
@@ -119,6 +134,33 @@ Kan du forklare hvad der fejler og rette det?
 
 ---
 
+## Del 3b: Verificer mod specen (5 min)
+
+Før du bygger videre, lad os verificere at Kiros kode matcher specen — den "autoritative kilde".
+
+1. Åbn Swagger UI (`http://localhost:8000/docs`)
+2. Opret en fangst via POST /fangster og kig på response-formatet
+3. Sammenlign med det forventede format i `.kiro/specs/fangst-registrering/design.md`
+
+Er felterne identiske? Er fejlmeddelelserne på dansk som specen kræver? Hvis ikke — hvad er forskellen?
+
+> 💡 **Princip:** I spec-drevet udvikling er specen altid "sandhedskilden". AI-genereret kode skal altid verificeres mod specen, ikke omvendt. Dette er et vigtigt princip i rigtige projekter, hvor man verificerer output mod autoritative kilder.
+
+---
+
+## Checkpoint: Er alt klar til at bygge videre?
+
+Inden du tilføjer ny funktionalitet, tjek at alt eksisterende fungerer:
+
+```bash
+cd app
+pytest tests/ -v
+```
+
+Alle tests skal være grønne. Hvis ikke, ret fejlene først — i rigtige projekter bruger man sådanne checkpoints til at sikre at alt fungerer, før man bygger videre.
+
+---
+
 ## Del 4: Tilføj en ny funktionalitet via spec-ændring (15 min)
 
 Nu skal du *selv* ændre en spec og se effekten. Vi tilføjer muligheden for at **søge i fangster på fiskeart**.
@@ -153,8 +195,17 @@ Kør tests igen og verificer at den nye funktionalitet virker.
 - [ ] Applikationen kører uden fejl
 - [ ] Alle tests er grønne
 - [ ] Du har testet validering manuelt i Swagger UI
+- [ ] Du har verificeret at Kiros output matcher specens format
 - [ ] Du har tilføjet FR-08 og fået Kiro til at implementere det
 - [ ] Du kan forklare sammenhængen mellem spec, kode og tests
+
+---
+
+## Godt at vide: Steering-filer
+
+Har du bemærket at Kiro automatisk skriver fejlmeddelelser på dansk og placerer tests i den rigtige mappe? Det skyldes projektets **steering-fil** i `.kiro/steering/coding-standards.md`. Steering-filer er vedvarende regler der påvirker Kiros opførsel i alle samtaler — i modsætning til instruktioner du giver i en enkelt chat.
+
+Åbn `.kiro/steering/coding-standards.md` og se hvilke regler der er defineret. I rigtige projekter bruger teams steering-filer til at sikre konsistens på tværs af udviklere og AI-sessioner.
 
 ---
 
