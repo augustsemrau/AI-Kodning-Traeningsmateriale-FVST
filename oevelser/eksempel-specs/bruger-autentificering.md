@@ -3,6 +3,8 @@
 > **Denne spec er et eksempel** til inspiration og reference. Den er ikke en del af
 > øvelserne, men viser hvordan en autentificeringsspec kunne se ud for FangstLog.
 
+> **Bemærk om format:** Denne spec bruger tabel-format for krav. De aktive specs i `.kiro/specs/` bruger Kiros native format med nummererede krav og acceptance criteria. Begge formater er gyldige — Kiro forstår begge dele.
+
 ## Oversigt
 
 Denne spec beskriver et simpelt autentificeringslag til FangstLog-systemet. Formålet er at sikre, at kun autoriserede brugere kan oprette og slette fangstregistreringer. Læsning er offentlig tilgængelig.

@@ -44,3 +44,5 @@ Hvis du ser `ModuleNotFoundError`, skyldes det sandsynligvis én af to ting:
 ## Hint 6: Kiro mister kontekst
 
 Hvis Kiro begynder at give mærkelige eller upræcise svar, er det sandsynligvis fordi samtalen er blevet for lang. Start en ny chat-session (`Ctrl+L` → klik på "+" for ny chat) og giv Kiro kontekst igen ved at referere til specen og de relevante filer.
+
+> 💡 **Tip:** Når du starter en ny session, kan du bede Kiro om at læse `tasks.md` for at se hvad der allerede er gjort: "Læs .kiro/specs/fangst-registrering/tasks.md og fortæl mig hvilke tasks der mangler." Tasks markeret med `[x]` er færdige, `[ ]` mangler stadig.

@@ -1,7 +1,7 @@
 # Øvelse 3: Udvid en feature — Fra spec til kode til test
 
 **Niveau:** Øvet  
-**Tid:** Ca. 45–60 minutter  
+**Tid:** Ca. 60–90 minutter  
 **Kode:** Python (FastAPI) — du læser, vurderer og kører kode  
 **Forudsætninger:** Øvelse 1 og 2 gennemført, conda-miljø aktiveret
 
@@ -43,7 +43,7 @@ app/
 ├── tests/
 │   ├── __init__.py        ← Python-pakke markør (rør ikke denne)
 │   └── test_placeholder.py ← Placeholder-test (erstattes med rigtige tests)
-└── pytest.ini             ← Pytest-konfiguration
+└── pytest.ini             ← Pytest-konfiguration (fortæller pytest hvor tests ligger)
 ```
 
 Åbn `app/src/main.py` og `app/src/models.py` og se at de kun indeholder skelet-kode med TODO-kommentarer. Det er Kiros opgave at udfylde dem.
@@ -87,6 +87,8 @@ Vent mens Kiro skriver koden. Det kan tage 1–2 minutter.
 
 > 💡 **Tip:** Hvis Kiro giver dig en forklaring i stedet for at skrive kode, prøv at være mere direkte: "Implementér koden nu og skriv den i filerne." Kiro reagerer bedre på konkrete instruktioner.
 
+> 💡 **Tip om præcision:** Kiro gør præcis det den kan udlede af din besked — hverken mere eller mindre. Vær tydelig om *scope*: "Ret fejlen i main.py" ændrer kun den ene fil, mens "Ret fejlen alle steder den optræder i hele projektet" får Kiro til at gennemgå alt. Tilsvarende giver "find alle steder der bruges X" en hurtig søgning, mens "undersøg GRUNDIGT alle filer i mappen for brug af X" giver en langt mere detaljeret analyse.
+
 ---
 
 ## Del 2: Kør applikationen (10 min)
@@ -101,7 +103,7 @@ uvicorn src.main:app --reload
 
 > ⚠️ **Vigtigt:** Du skal stå i `app/`-mappen (ikke i `app/src/`) når du kører uvicorn. Ellers får du `ModuleNotFoundError`.
 
-Åbn din browser på `http://localhost:8000/docs` — her finder du automatisk genereret dokumentation (Swagger UI) for alle endepunkter.
+Åbn din browser på `http://localhost:8000/docs` — her finder du Swagger UI, en automatisk genereret webside hvor du kan teste API'ets endepunkter direkte i browseren — uden at skrive kode.
 
 Prøv manuelt at:
 1. Oprette en fangst via POST /fangster
@@ -129,6 +131,8 @@ Jeg kørte tests og fik følgende output:
 
 Kan du forklare hvad der fejler og rette det?
 ```
+
+> ⚠️ **Bemærk:** Ovenstående prompt beder Kiro om at *forklare og rette*. Hvis du kun vil have en forklaring uden ændringer, skriv i stedet: "Forklar hvad der fejler, men lav ingen ændringer endnu." Kiro vil ellers begynde at rette koden med det samme.
 
 > 💡 **Tip:** Hvis samtalen med Kiro er blevet lang og svarene upræcise, start en ny chat-session og giv Kiro kontekst igen ved at referere til specen og de relevante filer.
 
@@ -159,13 +163,17 @@ pytest tests/ -v
 
 Alle tests skal være grønne. Hvis ikke, ret fejlene først — i rigtige projekter bruger man sådanne checkpoints til at sikre at alt fungerer, før man bygger videre.
 
+> 💡 **Tip om test-kørsel:** Under udvikling kan du køre specifikke tests for hurtig feedback: `pytest tests/test_fangster.py -v`. Kør den fulde testsuite (`pytest tests/ -v`) ved checkpoints som dette. Det sparer tid og giver hurtigere feedback.
+
 ---
 
 ## Del 4: Tilføj en ny funktionalitet via spec-ændring (15 min)
 
 Nu skal du *selv* ændre en spec og se effekten. Vi tilføjer muligheden for at **søge i fangster på fiskeart**.
 
-Åbn `.kiro/specs/fangst-registrering/requirements.md` og tilføj følgende nye krav i bunden:
+Åbn `.kiro/specs/fangst-registrering/tasks.md` og bemærk at der allerede er en optionel task 9 om fiskeart-filtrering (markeret med `*`). Vi gør den obligatorisk.
+
+**Trin 1:** Åbn `.kiro/specs/fangst-registrering/requirements.md` og tilføj følgende nye krav i bunden:
 
 ```markdown
 11. Systemet skal understøtte filtrering af fangster på fiskeart
@@ -174,10 +182,7 @@ Nu skal du *selv* ændre en spec og se effekten. Vi tilføjer muligheden for at 
       - Når fiskeart er angivet, returneres kun fangster med den pågældende fiskeart
 ```
 
-Åbn også `.kiro/specs/fangst-registrering/tasks.md` og tilføj en ny task:
-```markdown
-- [ ] 9. Implementér fiskeart-filtrering i GET /fangster
-```
+**Trin 2:** Åbn `.kiro/specs/fangst-registrering/tasks.md` og find task 9. Fjern `*` efter `[ ]` for at gøre den obligatorisk — den ændres fra `[ ]*` til `[ ]`.
 
 Gem filerne, og send derefter til Kiro:
 ```
@@ -196,7 +201,7 @@ Kør tests igen og verificer at den nye funktionalitet virker.
 - [ ] Alle tests er grønne
 - [ ] Du har testet validering manuelt i Swagger UI
 - [ ] Du har verificeret at Kiros output matcher specens format
-- [ ] Du har tilføjet FR-08 og fået Kiro til at implementere det
+- [ ] Du har tilføjet et nyt krav om fiskeart-filtrering og fået Kiro til at implementere det
 - [ ] Du kan forklare sammenhængen mellem spec, kode og tests
 
 ---

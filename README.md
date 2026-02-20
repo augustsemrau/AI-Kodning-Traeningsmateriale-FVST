@@ -4,6 +4,8 @@ Velkommen til dette læringsforløb. Du er ved at lære, hvordan man bruger **Ki
 
 Dette materiale er lavet til medarbejdere på IT-fundament projektet hos Fiskeristyrelsen — uanset om du er projektleder, ny udvikler, eller blot nysgerrig på, hvordan AI indgår i vores arbejdsproces.
 
+> 🚀 **Kom i gang:** Læs [OPSAETNING.md](./OPSAETNING.md) for at hente projektet og sætte dit miljø op — det tager ca. 15 minutter.
+
 ---
 
 ## Hvad er formålet med dette forløb?
@@ -70,7 +72,7 @@ kiro-laeringsforloeb/
 │   └── pytest.ini             ← Pytest-konfiguration
 │
 ├── .kiro/
-│   ├── steering/              ← Kiro-konfiguration (kodestandarder)
+│   ├── steering/              ← Vedvarende regler for Kiro (påvirker alle AI-samtaler)
 │   │   └── coding-standards.md
 │   └── specs/                 ← Færdige eksempel-specs (start her!)
 │       ├── fangst-registrering/
@@ -102,7 +104,7 @@ Vi anbefaler at gennemgå øvelserne i rækkefølge:
 | # | Øvelse | Niveau | Sprog | Hvad du lærer |
 |---|--------|--------|-------|---------------|
 | 1 | Læs en spec | Begynder | — | Hvad en spec er og indeholder |
-| 2 | Bed Kiro skrive en spec | Let øvet | Python | Kiro som spec-forfatter |
+| 2 | Bed Kiro skrive en spec | Let øvet | — | Kiro som spec-forfatter |
 | 3 | Udvid en feature | Øvet | Python | Spec → kode → test |
 | 4 | Node.js refaktorering | Avanceret | Node.js | Migrering med AI |
 
@@ -110,9 +112,13 @@ Vi anbefaler at gennemgå øvelserne i rækkefølge:
 
 ## Kom i gang
 
-**Næste skridt:** Læs [OPSAETNING.md](./OPSAETNING.md) for at få dit miljø klar.
+Har du allerede sat miljøet op? Start med [Øvelse 1 →](./oevelser/01-laes-en-spec/README.md)
 
-Hvis du allerede har Kiro og conda installeret, kan du springe direkte til [Øvelse 1](./oevelser/01-laes-en-spec/README.md).
+Mangler du opsætning? Se [OPSAETNING.md](./OPSAETNING.md).
+
+> 💡 **Tip:** Hvis Kiro giver et svar der slet ikke matcher det forventede (fx forkert sprog, forkerte filer, eller helt irrelevant kode), start en ny chat-session og vær mere specifik. Referer direkte til filnavne og spec-stier — det hjælper Kiro med at forstå konteksten.
+
+> ⚠️ **Vigtigt om Kiros opførsel:** Kiro skelner mellem *undersøgelse* og *rettelser* — men det gør den kun, hvis du er tydelig. Hvis du skriver "jeg tror der er et problem i main.py", vil Kiro ofte begynde at ændre filen med det samme. Vil du kun have en analyse, så sig det eksplicit: "Analyser main.py for problemer, men lav ingen ændringer." Denne forskel er vigtig at kende fra starten.
 
 ---
 

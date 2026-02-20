@@ -62,6 +62,10 @@ Skriv en komplet spec til denne feature i Kiro-format
 Opret den som .kiro/specs/fartoej-kartotek/
 ```
 
+> 💡 **Tip:** Du er velkommen til at tilpasse denne besked med dine egne ord. Prøv at se om Kiro forstår dig, selv hvis du formulerer det anderledes.
+
+> 💡 **Tip:** Hvis Kiro forklarer specen i chatten i stedet for at oprette filer, sig: "Opret filerne nu i .kiro/specs/fartoej-kartotek/".
+
 > **Bemærk:** Kiro bruger sit spec-system med separate filer (requirements.md, design.md, tasks.md) i en mappe. De eksisterende specs i `.kiro/specs/` følger dette format. Kiro bør oprette den nye spec i samme struktur.
 
 Vent på Kiros svar og lad den skrive filen.
@@ -131,6 +135,13 @@ Hvad bør man særligt være opmærksom på?
 I rigtige projekter bruger man ofte **spec-templates** — standardskabeloner der sikrer at vigtige sektioner altid er med (requirements, design, tasks, test-strategi). Templates gør det lettere at skrive konsistente specs på tværs af et team.
 
 Kiro understøtter også **steering-filer** — vedvarende regler der påvirker Kiros opførsel i alle samtaler. Prøv at åbne filen `.kiro/steering/coding-standards.md` og se hvilke regler der er defineret for dette projekt. Steering-filer er det der gør Kiro-workflows reproducerbare og konsistente — i modsætning til instruktioner du giver i en enkelt chat-session.
+
+Steering-filer har forskellige **inklusionstyper** der styrer hvornår de er aktive:
+- **Always** (standard) — sendes med i *hver* samtale med Kiro
+- **fileMatch** — inkluderes kun når en fil der matcher et bestemt mønster læses ind (fx `fileMatchPattern: 'README*'`)
+- **Manual** — inkluderes kun når du eksplicit refererer til dem med `#` i chatten
+
+I dette projekt bruger `coding-standards.md` typen "always", så reglerne altid er aktive.
 
 ---
 

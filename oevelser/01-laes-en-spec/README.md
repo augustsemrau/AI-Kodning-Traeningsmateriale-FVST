@@ -37,7 +37,7 @@ Hvert krav har **acceptkriterier** — konkrete, testbare betingelser der afgør
 
 ### Hvad er design?
 
-Designet beskriver *hvordan* kravene skal realiseres teknisk: datamodeller, API-endepunkter, filstruktur og arkitekturbeslutninger.
+Designet beskriver *hvordan* kravene skal realiseres teknisk: datamodeller, API-endepunkter, filstruktur og arkitekturbeslutninger. En **datamodel** er en oversigt over de informationer systemet arbejder med — tænk på det som en skabelon for de data der gemmes.
 
 ### Hvad er Tasks?
 
@@ -51,6 +51,7 @@ Tasks-sektionen er en **opgaveliste** — en nedbrydning af specen i konkrete, a
 2. Udvid mappen `.kiro` → `specs` → `fangst-registrering`
 3. Du ser tre filer: `requirements.md`, `design.md` og `tasks.md`
 4. Åbn **`requirements.md`** først
+5. Åbn også **`tasks.md`** og se hvordan specens krav er nedbrudt i konkrete opgaver
 
 Du ser nu kravene for FangstLog-systemets centrale funktion: at registrere fangster.
 

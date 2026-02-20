@@ -26,6 +26,8 @@ git clone <repository-url>
 cd kiro-laeringsforloeb
 ```
 
+> 📝 Erstat `<repository-url>` med den faktiske URL du har fået fra din underviser.
+
 **Mulighed B — Download ZIP:**
 1. Download og pak ZIP-filen ud
 2. Åbn en terminal og naviger til mappen:
@@ -93,7 +95,7 @@ Har du problemer med adgang? Kontakt Kim eller den tekniske ansvarlige på proje
 
 ### 5a: Tjek at Python-miljøet fungerer
 
-Åbn en terminal i Kiro (`Ctrl+ø` eller **Terminal → New Terminal**) og kør:
+Åbn en terminal i Kiro (`Ctrl+ø` på Windows/Linux, `Cmd+ø` på Mac, eller **Terminal → New Terminal**) og kør:
 
 ```bash
 conda activate kiro-laering
@@ -159,3 +161,7 @@ conda --version
 ---
 
 Klar? Gå til [Øvelse 1 →](./oevelser/01-laes-en-spec/README.md)
+
+---
+
+> 📝 **Bemærk:** Øvelse 4 kræver desuden **Node.js v18+** og **npm**. Se [øvelse 4](./oevelser/04-node-refaktorering/README.md) for installationsvejledning.

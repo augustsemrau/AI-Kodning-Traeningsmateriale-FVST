@@ -29,6 +29,8 @@ Dette er kernen i Fiskeristyrelsen-projektet: at tage eksisterende systemer og m
 
 Specen er vores **"sandhedskilde"** — den er uafhængig af implementeringssproget.
 
+> 💡 **Fra det rigtige projekt:** I Fiskeristyrelsens migrationsprojekt følger teamet en faseopdelt workflow: Discovery (kortlæg endpoints) → Specification (skriv specs) → Conversion (implementér) → Verification (test 1-til-1 match). I denne øvelse gennemgår vi en forenklet version af samme proces.
+
 ---
 
 ## Forudsætninger: Node.js setup
@@ -153,6 +155,8 @@ npm run dev  # kører typisk på port 3000
 ```
 
 Test begge med de samme requests. Brug fx `curl` eller Kiro-chat til at hjælpe dig med at formulere requests:
+
+> 💡 **Tip:** Åbn en ny terminal i Kiro via **Terminal → New Terminal** (eller klik på '+' i terminalpanelet) for at have begge API'er kørende samtidigt.
 
 ```
 Kan du give mig curl-kommandoer til at teste følgende mod begge API'er 
