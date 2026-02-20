@@ -49,6 +49,8 @@ på mit styresystem?
 
 ## Del 1: Opret Node.js projektstruktur (15 min)
 
+Der ligger en `package-template.json` i denne øvelses mappe (`oevelser/04-node-refaktorering/package-template.json`) med anbefalede dependencies og scripts. Du kan bruge den som udgangspunkt.
+
 Bed Kiro om at sætte Node.js projektet op:
 
 ```
@@ -60,11 +62,14 @@ Opret en projektstruktur i mappen app-node/ med:
 - Jest som test-framework
 - Nodemon til udvikling
 
-Projektet skal have samme API-struktur som beskrevet i 
-.kiro/specs/fangst-registrering.md
+Brug oevelser/04-node-refaktorering/package-template.json som udgangspunkt 
+for package.json.
 
-Opret package.json, tsconfig.json og en basiskonfiguration der kan 
-køres med: npm install && npm run dev
+Projektet skal have samme API-struktur som beskrevet i 
+.kiro/specs/fangst-registrering/
+
+Opret package.json, tsconfig.json, jest.config.ts og en basiskonfiguration 
+der kan køres med: npm install && npm run dev
 ```
 
 Lad Kiro oprette filerne og kør derefter:
@@ -89,8 +94,8 @@ Bed Kiro om at hjælpe:
 Jeg vil skrive en migrerings-spec der beskriver overflytningen af 
 fangst-registrering fra Python/FastAPI til Node.js/Express/TypeScript.
 
-Brug .kiro/specs/fangst-registrering.md som udgangspunkt, men skriv en 
-ny spec i .kiro/specs/fangst-registrering-nodejs.md der:
+Brug specen i .kiro/specs/fangst-registrering/ som udgangspunkt, men opret en 
+ny migrerings-spec som .kiro/specs/fangst-registrering-nodejs/ der:
 
 1. Beskriver kildeteknologi (Python/FastAPI) og målteknologi (Node.js/Express/TypeScript)
 2. Markerer hvilke krav der er uændrede (samme funktionalitet, nyt sprog)
@@ -109,7 +114,7 @@ Gennemgå den genererede spec og tilret evt. inden du fortsætter.
 Nu implementerer vi. Send til Kiro:
 
 ```
-Implementér .kiro/specs/fangst-registrering-nodejs.md i app-node/ mappen.
+Implementér specen i .kiro/specs/fangst-registrering-nodejs/ i app-node/ mappen.
 
 Krav:
 - Brug TypeScript interfaces (ikke klasser) til datamodeller
@@ -176,7 +181,7 @@ Baseret på det vi har lavet i denne øvelse:
 2. Hvad er spec'ens rolle i at sikre at den migrerede version er korrekt?
 
 3. Hvad ville du anbefale som næste skridt, hvis vi skulle migrere 
-   autentificeringsspecen (bruger-autentificering.md) til Node.js?
+   autentificeringsspecen (se oevelser/eksempel-specs/bruger-autentificering.md) til Node.js?
 ```
 
 ---
@@ -186,7 +191,7 @@ Baseret på det vi har lavet i denne øvelse:
 - [ ] Node.js projektet kører uden fejl (`npm run dev`)
 - [ ] Alle Jest-tests er grønne (`npm test`)
 - [ ] Du har testet begge API'er med de samme inputs og fået identiske svar
-- [ ] Du har `.kiro/specs/fangst-registrering-nodejs.md`
+- [ ] Du har en migrerings-spec under `.kiro/specs/fangst-registrering-nodejs/`
 - [ ] Du kan forklare hvad spec'ens rolle er i en migreringsproces
 
 ---
@@ -195,8 +200,8 @@ Baseret på det vi har lavet i denne øvelse:
 
 Du har nu gennemgået hele spektret fra spec-læsning til migrering. De næste naturlige skridt i et rigtigt projekt ville være:
 
-- **Autentificering i Node.js** — migrer `bruger-autentificering.md`
-- **Rapporter i Node.js** — migrer `rapport-generering.md`
+- **Autentificering i Node.js** — se eksempel-spec i `oevelser/eksempel-specs/bruger-autentificering.md`
+- **Rapporter i Node.js** — migrer `rapport-generering` specen
 - **Database-integration** — byt in-memory storage ud med en rigtig database
 - **CI/CD pipeline** — automatiser test og deployment
 

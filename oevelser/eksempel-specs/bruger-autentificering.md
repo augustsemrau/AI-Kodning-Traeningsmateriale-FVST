@@ -1,4 +1,7 @@
-# Spec: Brugerautentificering
+# Eksempel-spec: Brugerautentificering
+
+> **Denne spec er et eksempel** til inspiration og reference. Den er ikke en del af
+> øvelserne, men viser hvordan en autentificeringsspec kunne se ud for FangstLog.
 
 ## Oversigt
 
@@ -82,7 +85,9 @@ Logger en bruger ind og returnerer et JWT-token.
 **Fejlsvar (401 Unauthorized):**
 ```json
 {
-  "fejl": "Ugyldigt brugernavn eller adgangskode"
+  "detail": {
+    "fejl": "Ugyldigt brugernavn eller adgangskode"
+  }
 }
 ```
 

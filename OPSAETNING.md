@@ -91,6 +91,25 @@ Har du problemer med adgang? Kontakt Kim eller den tekniske ansvarlige på proje
 
 ## Trin 5: Verificer at alt virker
 
+### 5a: Tjek at Python-miljøet fungerer
+
+Åbn en terminal i Kiro (`Ctrl+ø` eller **Terminal → New Terminal**) og kør:
+
+```bash
+conda activate kiro-laering
+cd app
+pytest tests/test_placeholder.py -v
+```
+
+Du bør se output der ligner:
+```
+tests/test_placeholder.py::test_placeholder PASSED
+```
+
+Hvis du ser fejl som `ModuleNotFoundError` eller `command not found`, tjek [Fejlfinding](#fejlfinding) nedenfor.
+
+### 5b: Tjek at Kiro kan se projektet
+
 Åbn Kiro's chat og skriv:
 
 ```
@@ -121,11 +140,22 @@ conda --version
 → Conda er ikke i din PATH. Prøv at genstarte terminalen, eller geninstaller Miniconda og sæt "Add to PATH" til ved installation.
 
 **Kiro kan ikke forbinde til AWS Bedrock**
-→ Tjek at dine credentials er korrekte. Kontakt den tekniske ansvarlige.
+→ Tjek følgende:
+1. Er dine AWS-credentials korrekte? Prøv at logge ind på AWS Console i en browser for at verificere.
+2. Har din bruger adgang til Bedrock-tjenesten? Spørg din systemadministrator.
+3. Er du på det rigtige AWS-region? Bedrock er ikke tilgængeligt i alle regioner.
+4. Prøv at genstarte Kiro — nogle gange hjælper det.
+5. Kontakt den tekniske ansvarlige hvis ovenstående ikke løser problemet.
 
 **Pakker kan ikke installeres**
 → Tjek at du har aktiveret conda-miljøet (`conda activate kiro-laering`) inden du kører `pip install`.
 
+**"ModuleNotFoundError" når du kører tests eller applikationen**
+→ Tjek at:
+1. Du har aktiveret conda-miljøet (`conda activate kiro-laering`)
+2. Du står i `app/`-mappen (ikke i `app/src/`)
+3. Der findes `__init__.py`-filer i både `app/src/` og `app/tests/` (de bør allerede være der)
+
 ---
 
-Klar? Gå til [Øvelse 1 →](../oevelser/01-laes-en-spec/README.md)
+Klar? Gå til [Øvelse 1 →](./oevelser/01-laes-en-spec/README.md)

@@ -61,26 +61,34 @@ kiro-laeringsforloeb/
 │
 ├── app/                       ← Den fiktive applikation (FangstLog)
 │   ├── src/
-│   │   ├── main.py            ← FastAPI applikation med alle endepunkter
-│   │   └── models.py          ← Pydantic datamodeller (FangstInput, FangstRegistrering)
+│   │   ├── __init__.py        ← Python-pakke markør
+│   │   ├── main.py            ← FastAPI applikation (skelet — udfyldes i øvelse 3)
+│   │   └── models.py          ← Pydantic datamodeller (skelet — udfyldes i øvelse 3)
 │   ├── tests/
-│   │   └── test_fangster.py   ← Komplet testsuite (13 tests)
+│   │   ├── __init__.py        ← Python-pakke markør
+│   │   └── test_placeholder.py ← Placeholder-test (erstattes i øvelse 3)
 │   └── pytest.ini             ← Pytest-konfiguration
 │
 ├── .kiro/
 │   └── specs/                 ← Færdige eksempel-specs (start her!)
-│       ├── fangst-registrering.md
-│       ├── bruger-autentificering.md
-│       └── rapport-generering.md
+│       ├── fangst-registrering/
+│       │   ├── requirements.md
+│       │   ├── design.md
+│       │   └── tasks.md
+│       └── rapport-generering/
+│           ├── requirements.md
+│           ├── design.md
+│           └── tasks.md
 │
 ├── .gitignore                 ← Python/Node.js/Kiro gitignore
-├── INSTRUKTION_TIL_UNDERVISER.md ← Intern vejledning til facilitator
 │
 └── oevelser/
     ├── 01-laes-en-spec/       ← Begynder: forstå hvad en spec er
     ├── 02-bed-kiro-skrive-spec/ ← Let øvet: lad Kiro skrive en spec
     ├── 03-udvid-feature/      ← Øvet: tilføj en ny funktion (inkl. hints.md)
-    └── 04-node-refaktorering/ ← Avanceret: Python → Node.js (inkl. package-template.json)
+    ├── 04-node-refaktorering/ ← Avanceret: Python → Node.js (inkl. package-template.json)
+    └── eksempel-specs/        ← Ekstra eksempel-specs til reference
+        └── bruger-autentificering.md
 ```
 
 ---

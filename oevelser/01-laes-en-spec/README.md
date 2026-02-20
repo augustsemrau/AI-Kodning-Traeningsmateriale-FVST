@@ -21,40 +21,55 @@ Når du er færdig med denne øvelse, kan du:
 
 I spec-drevet udvikling starter alt med en **specifikation** — en struktureret beskrivelse af hvad et stykke software skal gøre. Tænk på det som en tegning, inden man bygger et hus.
 
-En god spec indeholder typisk:
-- **Oversigt** — hvad handler denne spec om?
-- **Krav** — hvad *skal* systemet kunne? (funktionelle krav)
-- **Krav** — hvad *skal* systemet opfylde? (ikke-funktionelle krav som hastighed, sikkerhed)
-- **Datamodel** — hvilke data arbejder systemet med?
-- **API-endepunkter** — hvordan "taler" man med systemet?
-- **Tasks** — hvilke konkrete opgaver skal løses for at implementere specen?
+I Kiro er en spec organiseret som en **mappe** med tre filer:
+
+- **`requirements.md`** — hvad systemet skal kunne (krav og acceptkriterier)
+- **`design.md`** — hvordan systemet skal bygges (datamodel, API-design, arkitektur)
+- **`tasks.md`** — hvilke konkrete opgaver der skal udføres for at implementere specen
+
+### Hvad er krav (requirements)?
+
+Krav beskriver *hvad* systemet skal gøre. Der er to typer:
+- **Funktionelle krav** — hvad systemet *skal kunne* (fx "systemet skal kunne oprette en fangst")
+- **Ikke-funktionelle krav** — hvad systemet *skal opfylde* udover funktionalitet (fx hastighed, sikkerhed, sprog)
+
+Hvert krav har **acceptkriterier** — konkrete, testbare betingelser der afgør om kravet er opfyldt.
+
+### Hvad er design?
+
+Designet beskriver *hvordan* kravene skal realiseres teknisk: datamodeller, API-endepunkter, filstruktur og arkitekturbeslutninger.
+
+### Hvad er Tasks?
+
+Tasks-sektionen er en **opgaveliste** — en nedbrydning af specen i konkrete, afgrænsede implementeringsopgaver. Tænk på det som en to-do-liste for den der skal bygge systemet. Hver task beskriver ét stykke arbejde, fx "Implementér POST /fangster med validering". Tasks kan udføres af en udvikler manuelt, eller man kan bede Kiro om at udføre dem én ad gangen.
 
 ---
 
 ## Del 1: Find og åbn en spec (5 min)
 
 1. I Kiro, kig i filpanelet til venstre
-2. Udvid mappen `.kiro` → `specs`
-3. Åbn filen **`fangst-registrering.md`**
+2. Udvid mappen `.kiro` → `specs` → `fangst-registrering`
+3. Du ser tre filer: `requirements.md`, `design.md` og `tasks.md`
+4. Åbn **`requirements.md`** først
 
-Du ser nu en spec for FangstLog-systemets centrale funktion: at registrere fangster.
+Du ser nu kravene for FangstLog-systemets centrale funktion: at registrere fangster.
 
 ---
 
 ## Del 2: Forstå specen (10 min)
 
-Læs specen igennem og besvar følgende spørgsmål for dig selv (du behøver ikke at skrive dem ned):
+Læs `requirements.md` og `design.md` igennem og besvar følgende spørgsmål for dig selv:
 
-**Om kravene:**
+**Om kravene (requirements.md):**
 1. Hvad sker der, hvis nogen prøver at registrere en fangst med en negativ mængde?
 2. Hvad sker der, hvis nogen prøver at registrere en fangst med en dato i fremtiden?
 3. Hvilke typer fisk er det tilladt at registrere?
 
-**Om datamodellen:**
+**Om designet (design.md):**
 4. Hvilke informationer indeholder en fangstregistrering?
 5. Hvad genereres automatisk af systemet (og skal altså ikke angives af brugeren)?
 
-**Om API'et:**
+**Om API'et (design.md):**
 6. Hvad returnerer systemet, når man opretter en ny fangst?
 7. Kan man hente fangster fra en bestemt periode? Hvordan?
 
@@ -66,7 +81,7 @@ Nu skal du bruge Kiro som sparringspartner. Åbn Kiro-chat (`Ctrl+L`) med specen
 
 **Spørgsmål 1 — Forstå konteksten:**
 ```
-Jeg kigger på filen .kiro/specs/fangst-registrering.md. 
+Jeg kigger på specen i .kiro/specs/fangst-registrering/. 
 Kan du forklare mig med enkle ord, hvad dette system skal bruges til, 
 som om du forklarede det til en ikke-teknisk person?
 ```
@@ -85,17 +100,19 @@ kunne skabe problemer, når man skal implementere den?
 
 Læs Kiros svar og følg op med opfølgende spørgsmål, hvis der er noget du ikke forstår.
 
+> 💡 **Tip:** Hvis Kiro giver lange eller upræcise svar, kan du prøve at starte en ny chat-session (`Ctrl+L` → klik på "+" for ny chat). Kiro fungerer bedst med friske samtaler.
+
 ---
 
 ## Del 4: Sammenlign to specs (5 min)
 
-Åbn nu **`rapport-generering.md`** og sammenlign den med `fangst-registrering.md`.
+Åbn nu mappen **`rapport-generering`** og kig på dens `requirements.md`. Sammenlign den med fangst-registreringens krav.
 
 Spørg Kiro:
 ```
-Jeg har nu kigget på både fangst-registrering.md og rapport-generering.md. 
-Hvilken af disse to specs beskriver funktionalitet som afhænger af den anden? 
-Forklar hvorfor.
+Jeg har nu kigget på specs for både fangst-registrering og rapport-generering 
+i .kiro/specs/. Hvilken af disse to specs beskriver funktionalitet som afhænger 
+af den anden? Forklar hvorfor.
 ```
 
 ---
@@ -113,7 +130,7 @@ Tænk over:
 
 - [ ] Hvad er formålet med en spec?
 - [ ] Hvad er forskellen på funktionelle og ikke-funktionelle krav?
-- [ ] Hvad betyder "Tasks"-sektionen i en spec?
+- [ ] Hvad er forskellen på requirements.md, design.md og tasks.md?
 - [ ] Hvorfor er datamodellen vigtig?
 
 ---

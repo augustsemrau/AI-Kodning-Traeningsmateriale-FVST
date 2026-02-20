@@ -28,6 +28,19 @@ Tjek at du har aktiveret conda-miljøet (`conda activate kiro-laering`) og at du
 
 ---
 
-## Hint 5: Import-fejl
+## Hint 5: Import-fejl (ModuleNotFoundError)
 
-Hvis du ser `ModuleNotFoundError`, skyldes det sandsynligvis at du kører uvicorn fra den forkerte mappe. Du skal stå i `app/`-mappen (ikke i `app/src/`).
+Hvis du ser `ModuleNotFoundError`, skyldes det sandsynligvis én af to ting:
+
+1. Du kører uvicorn fra den forkerte mappe. Du skal stå i `app/`-mappen (ikke i `app/src/`).
+2. Der mangler en `__init__.py`-fil. Python bruger disse filer til at markere mapper som "pakker". Der bør ligge en `__init__.py` i både `app/src/` og `app/tests/`. Hvis de mangler, opret dem som tomme filer:
+   ```bash
+   touch app/src/__init__.py
+   touch app/tests/__init__.py
+   ```
+
+---
+
+## Hint 6: Kiro mister kontekst
+
+Hvis Kiro begynder at give mærkelige eller upræcise svar, er det sandsynligvis fordi samtalen er blevet for lang. Start en ny chat-session (`Ctrl+L` → klik på "+" for ny chat) og giv Kiro kontekst igen ved at referere til specen og de relevante filer.

@@ -28,3 +28,9 @@ Thumbs.db
 # IDE
 .vscode/
 .idea/
+
+# Steering templates
+steering-templates/
+
+# Facilitator (intern vejledning — ikke til deltagere)
+.facilitator/

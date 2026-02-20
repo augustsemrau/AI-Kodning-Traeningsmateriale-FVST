@@ -30,18 +30,23 @@ Arbejdsflowet er:
 
 ---
 
-## Startpunkt: En delvist eksisterende applikation
+## Startpunkt: Et applikationsskelet
 
-Projektet indeholder allerede en simpel skelet-applikation i `app/src/`. Undersøg den:
+Projektet indeholder allerede et minimalt skelet i `app/src/`. Undersøg det:
 
 ```
 app/
 ├── src/
-│   ├── main.py          ← FastAPI applikation (tom/minimal)
-│   └── models.py        ← Pydantic datamodeller (tom/minimal)
-└── tests/
-    └── test_placeholder.py
+│   ├── __init__.py        ← Python-pakke markør (rør ikke denne)
+│   ├── main.py            ← FastAPI applikation (kun et velkomst-endepunkt)
+│   └── models.py          ← Pydantic datamodeller (tom — kun TODO-kommentarer)
+├── tests/
+│   ├── __init__.py        ← Python-pakke markør (rør ikke denne)
+│   └── test_placeholder.py ← Placeholder-test (erstattes med rigtige tests)
+└── pytest.ini             ← Pytest-konfiguration
 ```
+
+Åbn `app/src/main.py` og `app/src/models.py` og se at de kun indeholder skelet-kode med TODO-kommentarer. Det er Kiros opgave at udfylde dem.
 
 ---
 
@@ -50,7 +55,7 @@ app/
 Åbn Kiro-chat og send:
 
 ```
-Kig på specen i .kiro/specs/fangst-registrering.md og den eksisterende 
+Kig på specen i .kiro/specs/fangst-registrering/ og det eksisterende 
 applikationsskelet i app/src/.
 
 Implementér specen fuldt ud:
@@ -65,6 +70,8 @@ Følg specens krav præcist og returner fejlmeddelelser på dansk.
 
 Vent mens Kiro skriver koden. Det kan tage 1–2 minutter.
 
+> 💡 **Tip:** Hvis Kiro giver dig en forklaring i stedet for at skrive kode, prøv at være mere direkte: "Implementér koden nu og skriv den i filerne." Kiro reagerer bedre på konkrete instruktioner.
+
 ---
 
 ## Del 2: Kør applikationen (10 min)
@@ -76,6 +83,8 @@ conda activate kiro-laering
 cd app
 uvicorn src.main:app --reload
 ```
+
+> ⚠️ **Vigtigt:** Du skal stå i `app/`-mappen (ikke i `app/src/`) når du kører uvicorn. Ellers får du `ModuleNotFoundError`.
 
 Åbn din browser på `http://localhost:8000/docs` — her finder du automatisk genereret dokumentation (Swagger UI) for alle endepunkter.
 
@@ -106,32 +115,31 @@ Jeg kørte tests og fik følgende output:
 Kan du forklare hvad der fejler og rette det?
 ```
 
+> 💡 **Tip:** Hvis samtalen med Kiro er blevet lang og svarene upræcise, start en ny chat-session og giv Kiro kontekst igen ved at referere til specen og de relevante filer.
+
 ---
 
 ## Del 4: Tilføj en ny funktionalitet via spec-ændring (15 min)
 
 Nu skal du *selv* ændre en spec og se effekten. Vi tilføjer muligheden for at **søge i fangster på fiskeart**.
 
-Åbn `.kiro/specs/fangst-registrering.md` og tilføj følgende til listen af query-parametre under `GET /fangster`:
+Åbn `.kiro/specs/fangst-registrering/requirements.md` og tilføj følgende nye krav i bunden:
 
 ```markdown
-- `fiskeart` (valgfri): filtrer på fiskeart, fx `torsk`
+11. Systemet skal understøtte filtrering af fangster på fiskeart
+    - Acceptance Criteria:
+      - GET /fangster accepterer en valgfri query-parameter `fiskeart`
+      - Når fiskeart er angivet, returneres kun fangster med den pågældende fiskeart
 ```
 
-Tilføj også et nyt krav under Funktionelle krav:
-
+Åbn også `.kiro/specs/fangst-registrering/tasks.md` og tilføj en ny task:
 ```markdown
-| FR-08 | Systemet skal understøtte filtrering af fangster på fiskeart | Middel |
+- [ ] 9. Implementér fiskeart-filtrering i GET /fangster
 ```
 
-Og en ny task:
-```markdown
-- [ ] Implementér fiskeart-filtrering i GET /fangster
+Gem filerne, og send derefter til Kiro:
 ```
-
-Gem filen, og send derefter til Kiro:
-```
-Jeg har opdateret .kiro/specs/fangst-registrering.md med et nyt krav (FR-08) 
+Jeg har opdateret specen i .kiro/specs/fangst-registrering/ med et nyt krav 
 om filtrering på fiskeart. Implementér denne ændring i app/src/main.py 
 og tilføj en test for den nye funktionalitet.
 ```

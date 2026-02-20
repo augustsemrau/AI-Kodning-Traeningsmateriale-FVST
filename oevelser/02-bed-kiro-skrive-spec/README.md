@@ -11,7 +11,7 @@
 
 Når du er færdig med denne øvelse, kan du:
 - Formulere en kravbeskrivelse til Kiro på naturligt sprog
-- Bede Kiro om at omsætte krav til en færdig spec i Kiro-format
+- Bede Kiro om at omsætte krav til en færdig spec
 - Vurdere og kritisere en AI-genereret spec
 - Iterere på en spec i dialog med Kiro
 
@@ -45,7 +45,7 @@ FangstLog mangler en funktion til at holde styr på **fartøjer** (både). Lige 
 Åbn Kiro-chat og send følgende besked (du er velkommen til at tilpasse den):
 
 ```
-Vi arbejder på FangstLog-systemet, som er beskrevet i .kiro/specs/fangst-registrering.md.
+Vi arbejder på FangstLog-systemet, som er beskrevet i .kiro/specs/fangst-registrering/.
 
 Jeg vil gerne tilføje et fartøjskartotek til systemet. Her er mine krav på naturligt sprog:
 
@@ -57,10 +57,12 @@ Jeg vil gerne tilføje et fartøjskartotek til systemet. Her er mine krav på na
 - Man skal kunne opdatere oplysninger om et fartøj (navn, ejer, type — men ikke registreringsnummer)
 - Man skal kunne slette et fartøj, men kun hvis det ikke har tilknyttede fangster
 
-Kan du skrive en komplet spec til denne feature i Kiro-format 
-(som de specs der allerede findes i .kiro/specs/)?
-Gem den som .kiro/specs/fartoej-kartotek.md
+Skriv en komplet spec til denne feature i Kiro-format 
+(en mappe med requirements.md, design.md og tasks.md under .kiro/specs/).
+Opret den som .kiro/specs/fartoej-kartotek/
 ```
+
+> **Bemærk:** Kiro bruger sit spec-system med separate filer (requirements.md, design.md, tasks.md) i en mappe. De eksisterende specs i `.kiro/specs/` følger dette format. Kiro bør oprette den nye spec i samme struktur.
 
 Vent på Kiros svar og lad den skrive filen.
 
@@ -68,17 +70,17 @@ Vent på Kiros svar og lad den skrive filen.
 
 ## Del 2: Evaluer specen (15 min)
 
-Åbn den nyoprettede fil `.kiro/specs/fartoej-kartotek.md` og gennemgå den kritisk.
+Åbn den nyoprettede spec-mappe og gennemgå den kritisk.
 
 Tjek følgende:
 
 **Fuldstændighed:**
-- [ ] Er alle 5 funktioner fra kravbeskrivelsen med?
-- [ ] Er der API-endepunkter for alle funktioner?
-- [ ] Er der en Tasks-sektion?
+- [ ] Er alle 6 funktioner fra kravbeskrivelsen med i requirements.md?
+- [ ] Er der API-endepunkter i design.md for alle funktioner?
+- [ ] Er der en tasks.md med opgaver?
 
 **Konsistens med eksisterende specs:**
-- [ ] Matcher formatet de eksisterende specs (fangst-registrering.md)?
+- [ ] Matcher formatet de eksisterende specs (fangst-registrering/)?
 - [ ] Er fejlmeddelelser på dansk?
 - [ ] Er datamodellen beskrevet?
 
@@ -104,10 +106,12 @@ Tak for specen. Jeg har et par kommentarer:
    et fartøj med et registreringsnummer der allerede eksisterer?
 3. [Evt. dine egne observationer]
 
-Opdater filen .kiro/specs/fartoej-kartotek.md med disse ændringer.
+Opdater specen med disse ændringer.
 ```
 
 Se den opdaterede spec og vurder om dine kommentarer er blevet adresseret.
+
+> 💡 **Tip:** Hvis Kiro begynder at give upræcise svar eller glemmer kontekst, start en ny chat-session. Lange samtaler kan gøre Kiro mindre præcis.
 
 ---
 
@@ -124,7 +128,7 @@ Hvad bør man særligt være opmærksom på?
 
 ## ✅ Øvelsen er færdig, når:
 
-- [ ] Du har filen `.kiro/specs/fartoej-kartotek.md` i projektet
+- [ ] Du har en fartøjskartotek-spec i projektet
 - [ ] Du har identificeret mindst 2 ting at forbedre i Kiros første udkast
 - [ ] Du har itereret på specen mindst én gang
 - [ ] Du kan beskrive hvornår det giver mening at lade Kiro skrive en spec
